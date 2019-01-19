@@ -24,7 +24,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.View;
 import android.widget.Toast;
 
 import org.apache.cordova.CordovaActivity;
@@ -54,21 +53,16 @@ public class MainActivity extends CordovaActivity {
                     Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
         } else {
-            initializeView();
+            startChatHeadService();
         }
     }
 
     /**
      * Set and initialize the view elements.
      */
-    private void initializeView() {
-        findViewById(R.id.notify_me).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    private void startChatHeadService() {
+
                 startService(new Intent(MainActivity.this, ChatHeadService.class));
-                finish();
-            }
-        });
     }
 
     @Override
@@ -78,7 +72,7 @@ public class MainActivity extends CordovaActivity {
             //Check if the permission is granted or not.
             // Settings activity never returns proper value so instead check with following method
             if (Settings.canDrawOverlays(this)) {
-                initializeView();
+                startChatHeadService();
             } else { //Permission is not available
                 Toast.makeText(this,
                         "Draw over other app permission not available. Closing the application",
