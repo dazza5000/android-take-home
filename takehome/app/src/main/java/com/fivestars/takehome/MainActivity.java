@@ -19,6 +19,7 @@
 
 package com.fivestars.takehome;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -61,16 +62,13 @@ public class MainActivity extends CordovaActivity {
      * Set and initialize the view elements.
      */
     private void startChatHeadService() {
-
-                startService(new Intent(MainActivity.this, ChatHeadService.class));
+        startService(new Intent(MainActivity.this, ChatHeadService.class));
     }
 
+    @SuppressLint("NewApi")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
-
-            //Check if the permission is granted or not.
-            // Settings activity never returns proper value so instead check with following method
             if (Settings.canDrawOverlays(this)) {
                 startChatHeadService();
             } else { //Permission is not available

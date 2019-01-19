@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/brandon/android-take-home/takehome/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "outputFile": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "/home/brandon/android-take-home/takehome/app/src/main/res/values/strings.xml",
+                    "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "7,3,5",
                         "startColumns": "4,4,4",

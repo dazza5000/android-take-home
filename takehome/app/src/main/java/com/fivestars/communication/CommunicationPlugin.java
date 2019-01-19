@@ -1,8 +1,9 @@
 package com.fivestars.communication;
 
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CallbackContext;
+import android.util.Log;
 
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -23,6 +24,7 @@ public class CommunicationPlugin extends CordovaPlugin {
 
     private void coolMethod(String message, CallbackContext callbackContext) {
         if (message != null && message.length() > 0) {
+            Log.e("darran", "weeee " +message);
             callbackContext.success(message);
         } else {
             callbackContext.error("Expected one non-empty string argument.");

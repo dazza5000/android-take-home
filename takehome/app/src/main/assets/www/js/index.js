@@ -34,6 +34,20 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
+
+        alert(cordova.platform);
+
+         function showToast()
+         {
+
+                 CommunicationPlugin.coolMethod("Doh! I'm a Toast!");
+
+         }
+
+                     document.addEventListener('DOMContentLoaded', function () {
+                       document.querySelector('button').addEventListener('click', showToast());
+                       main();
+                     });
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {
