@@ -166,6 +166,8 @@ android {
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
         }
+
+        targetSdkVersion 27
     }
 
     lintOptions {
@@ -261,6 +263,7 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     // SUB-PROJECT DEPENDENCIES END
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
 
 def promptForReleaseKeyPassword() {

@@ -3,6 +3,7 @@ package com.fivestars.takehome;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Binder;
 import android.os.IBinder;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,12 +17,20 @@ public class ChatHeadService extends Service {
     private WindowManager mWindowManager;
     private View mChatHeadView;
 
+    public class LocalBinder extends Binder {
+        ChatHeadService getService() {
+            return ChatHeadService.this;
+        }
+    }
+
+    private final IBinder mBinder = new LocalBinder();
+
     public ChatHeadService() {
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mBinder;
     }
 
     @Override
@@ -47,18 +56,8 @@ public class ChatHeadService extends Service {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mChatHeadView, params);
 
-        //Set the close button.
-        ImageView closeButton = (ImageView) mChatHeadView.findViewById(R.id.close_btn);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //close the service and remove the chat head from the window
-                stopSelf();
-            }
-        });
-
         //Drag and move chat head using user's touch action.
-        final ImageView chatHeadImage = (ImageView) mChatHeadView.findViewById(R.id.chat_head_profile_iv);
+        final ImageView chatHeadImage = (ImageView) mChatHeadView.findViewById(R.id.button_five_stars);
         chatHeadImage.setOnTouchListener(new View.OnTouchListener() {
             private int lastAction;
             private int initialX;

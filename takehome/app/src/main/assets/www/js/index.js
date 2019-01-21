@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+
+
 var app = {
     // Application Constructor
     initialize: function () {
@@ -33,21 +36,18 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        app.receivedEvent('deviceready');
 
-        alert(cordova.platform);
+             function cordovaDevice() {
+                alert("woot");
+             }
 
-         function showToast()
-         {
 
-                 CommunicationPlugin.coolMethod("Doh! I'm a Toast!");
+         function bridgeIt() {
+             cordova.exec({}, function(err) {}, "CommunicationPlugin", "coolMethod", ["woot"]);
+         };
 
-         }
+    document.getElementById("cordovaDevice").addEventListener("click", bridgeIt);
 
-                     document.addEventListener('DOMContentLoaded', function () {
-                       document.querySelector('button').addEventListener('click', showToast());
-                       main();
-                     });
     },
     // Update DOM on a Received Event
     receivedEvent: function (id) {

@@ -25,13 +25,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.widget.Toast;
 
 import org.apache.cordova.CordovaActivity;
 
 public class MainActivity extends CordovaActivity {
 
-    private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
+    private static final int RC_DRAW_OVERLAY = 777;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,26 +54,18 @@ public class MainActivity extends CordovaActivity {
             //to grant the permission.
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
-        } else {
-            startChatHeadService();
+            startActivityForResult(intent, RC_DRAW_OVERLAY);
         }
-    }
 
-    /**
-     * Set and initialize the view elements.
-     */
-    private void startChatHeadService() {
-        startService(new Intent(MainActivity.this, ChatHeadService.class));
+        appView.sendJavascript("alert(\"from android\");");
+
     }
 
     @SuppressLint("NewApi")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
-            if (Settings.canDrawOverlays(this)) {
-                startChatHeadService();
-            } else { //Permission is not available
+        if (requestCode == RC_DRAW_OVERLAY) {
+            if (!Settings.canDrawOverlays(this)) { //Permission is not available
                 Toast.makeText(this,
                         "Draw over other app permission not available. Closing the application",
                         Toast.LENGTH_SHORT).show();

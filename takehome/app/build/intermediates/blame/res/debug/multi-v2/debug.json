@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "outputFile": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/values/strings.xml",
+                    "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "7,3,5",
                         "startColumns": "4,4,4",
@@ -18,6 +18,25 @@
                         "startOffsets": "55,119,165",
                         "endColumns": "63,45,58",
                         "endOffsets": "114,160,219"
+                    }
+                },
+                {
+                    "source": "/home/daz/.gradle/caches/transforms-1/files-1.1/circleimageview-3.0.0.aar/0a2e20d991988386cbe7dbdc82b9402b/res/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "24",
+                        "endOffsets": "361"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "224",
+                        "endLines": "10",
+                        "endColumns": "24",
+                        "endOffsets": "530"
                     }
                 }
             ]
