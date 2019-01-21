@@ -20,18 +20,15 @@
 package com.fivestars.takehome;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.widget.Toast;
 
-import org.apache.cordova.CordovaActivity;
-
-public class MainActivity extends CordovaActivity {
+public class MainActivity extends Activity {
 
     private static final int RC_DRAW_OVERLAY = 777;
 
@@ -45,27 +42,23 @@ public class MainActivity extends CordovaActivity {
             moveTaskToBack(true);
         }
 
-        // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-
-            //If the draw over permission is not available open the settings screen
-            //to grant the permission.
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
             startActivityForResult(intent, RC_DRAW_OVERLAY);
+        } else {
+            startFiveStarsService();
+            finish();
         }
-
-        appView.sendJavascript("alert(\"from android\");");
-
     }
 
     @SuppressLint("NewApi")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RC_DRAW_OVERLAY) {
-            if (!Settings.canDrawOverlays(this)) { //Permission is not available
+            if (Settings.canDrawOverlays(this)) {
+                startFiveStarsService();
+            } else { //Permission is not available
                 Toast.makeText(this,
                         "Draw over other app permission not available. Closing the application",
                         Toast.LENGTH_SHORT).show();
@@ -75,5 +68,9 @@ public class MainActivity extends CordovaActivity {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    private void startFiveStarsService() {
+        startService(new Intent(getApplicationContext(), FiveStarsService.class));
     }
 }

@@ -13,11 +13,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ChatActivity"
-            android:label="Chat with Android"/>
         <service
-            android:name=".ChatHeadService"
+            android:name=".FiveStarsService"
             android:enabled="true"
             android:exported="false"/>
     </application>

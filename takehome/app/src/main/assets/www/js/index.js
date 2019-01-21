@@ -41,10 +41,17 @@ var app = {
                 alert("woot");
              }
 
+           var button = document.getElementById("cordovaDevice");
+
 
          function bridgeIt() {
-             cordova.exec({}, function(err) {}, "CommunicationPlugin", "coolMethod", ["woot"]);
+             cordova.exec(function(string){
+                              button.name = string;
+                              console.log(string);
+                              button.textContent = string;
+                            }, function(err) {}, "CommunicationPlugin", "coolMethod", ["woot"]);
          };
+
 
     document.getElementById("cordovaDevice").addEventListener("click", bridgeIt);
 
