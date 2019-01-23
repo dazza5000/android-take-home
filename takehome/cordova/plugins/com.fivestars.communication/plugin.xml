@@ -14,5 +14,6 @@
 		</config-file>
 		<source-file src="src/android/CommunicationPlugin.java" target-dir="src/com/fivestars/communication" />
 	</platform>
+	<js-module><runs/></js-module>
 </plugin>
 

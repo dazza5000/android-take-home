@@ -36,18 +36,17 @@ public final class R {
     public static final int civ_circle_background_color=0x7f010003;
   }
   public static final class drawable {
-    public static final int ic_android_circle=0x7f020000;
-    public static final int ic_five_stars=0x7f020001;
-    public static final int screen=0x7f020002;
+    public static final int ic_five_stars=0x7f020000;
+    public static final int screen=0x7f020001;
   }
   public static final class id {
     public static final int close_btn=0x7f030000;
-    public static final int five_stars_frame_layout=0x7f030001;
-    public static final int move_btn=0x7f030002;
+    public static final int cordova_container=0x7f030001;
+    public static final int five_stars_frame_layout=0x7f030002;
+    public static final int move_btn=0x7f030003;
   }
   public static final class layout {
-    public static final int activity_chat=0x7f040000;
-    public static final int service_five_stars=0x7f040001;
+    public static final int service_five_stars=0x7f040000;
   }
   public static final class mipmap {
     public static final int icon=0x7f050000;

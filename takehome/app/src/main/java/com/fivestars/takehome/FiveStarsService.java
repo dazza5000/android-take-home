@@ -78,6 +78,6 @@ public class FiveStarsService extends CordovaService {
 
     @Override
     int getWebViewParentLayoutId() {
-        return R.id.five_stars_frame_layout;
+        return R.id.cordova_container;
     }
 }

@@ -3,13 +3,12 @@ attr civ_border_color
 attr civ_border_overlay
 attr civ_border_width
 attr civ_circle_background_color
-drawable ic_android_circle
 drawable ic_five_stars
 drawable screen
 id close_btn
+id cordova_container
 id five_stars_frame_layout
 id move_btn
-layout activity_chat
 layout service_five_stars
 mipmap icon
 string activity_name

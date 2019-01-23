@@ -1,4 +1,4 @@
-#Mon Jan 21 15:50:17 CST 2019
-base.0=/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
+#Tue Jan 22 22:29:45 CST 2019
+base.0=/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
+path.0=classes.dex

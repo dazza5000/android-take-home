@@ -7,3 +7,8 @@ module.exports.metadata =
 };
 // BOTTOM OF METADATA
 });
+
+require('cordova/channel').onCordovaReady.subscribe(function() {
+               require('cordova/exec')(win, null, 'CommunicationPlugin', 'messageChannel', []);
+              }
+);
