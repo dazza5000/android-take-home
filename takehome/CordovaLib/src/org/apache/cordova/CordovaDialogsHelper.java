@@ -65,7 +65,7 @@ public class CordovaDialogsHelper {
                     return true;
             }
         });
-        lastHandledDialog = dlg.show();
+//        lastHandledDialog = dlg.show();
     }
 
     public void showConfirm(String message, final Result result) {

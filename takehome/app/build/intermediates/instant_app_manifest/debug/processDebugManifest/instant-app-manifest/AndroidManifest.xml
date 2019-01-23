@@ -41,12 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.fivestars.takehome.ChatActivity"
-            android:label="Chat with Android" />
 
         <service
-            android:name="com.fivestars.takehome.ChatHeadService"
+            android:name="com.fivestars.takehome.FiveStarsService"
             android:enabled="true"
             android:exported="false" />
     </application>

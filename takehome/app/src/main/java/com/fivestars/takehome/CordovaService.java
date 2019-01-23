@@ -47,7 +47,7 @@ abstract public class CordovaService extends Service {
         loadUrl(launchUrl);
 
         //Inflate the chat head layout we created
-        contentView = LayoutInflater.from(this).inflate(getLayoutToInflate(), null);
+        contentView = LayoutInflater.from(this).inflate(getLayoutToInflate(), nullgit status;
 
         appView.getView().setLayoutParams(new ViewGroup.LayoutParams(dpToPx(180), dpToPx(180)));
 

@@ -21,11 +21,14 @@ package org.apache.cordova;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Pair;
 
 import org.json.JSONException;
@@ -39,7 +42,7 @@ import java.util.concurrent.Executors;
  */
 public class CordovaInterfaceImpl implements CordovaInterface {
     private static final String TAG = "CordovaInterfaceImpl";
-    protected Activity activity;
+    protected Service activity;
     protected ExecutorService threadPool;
     protected PluginManager pluginManager;
 
@@ -50,22 +53,24 @@ public class CordovaInterfaceImpl implements CordovaInterface {
     protected int activityResultRequestCode;
     protected boolean activityWasDestroyed = false;
     protected Bundle savedPluginState;
+    protected Handler handler;
 
-    public CordovaInterfaceImpl(Activity activity) {
-        this(activity, Executors.newCachedThreadPool());
+    public CordovaInterfaceImpl(Service service) {
+        this(service, Executors.newCachedThreadPool());
     }
 
-    public CordovaInterfaceImpl(Activity activity, ExecutorService threadPool) {
-        this.activity = activity;
+    public CordovaInterfaceImpl(Service service, ExecutorService threadPool) {
+        this.activity = service;
         this.threadPool = threadPool;
         this.permissionResultCallbacks = new CallbackMap();
+        handler = new Handler(Looper.getMainLooper());
     }
 
     @Override
     public void startActivityForResult(CordovaPlugin command, Intent intent, int requestCode) {
         setActivityResultCallback(command);
         try {
-            activity.startActivityForResult(intent, requestCode);
+            //TODO activity.startActivityForResult(intent, requestCode);
         } catch (RuntimeException e) { // E.g.: ActivityNotFoundException
             activityResultCallback = null;
             throw e;
@@ -82,7 +87,7 @@ public class CordovaInterfaceImpl implements CordovaInterface {
     }
 
     @Override
-    public Activity getActivity() {
+    public Service getService() {
         return activity;
     }
 
@@ -92,9 +97,14 @@ public class CordovaInterfaceImpl implements CordovaInterface {
     }
 
     @Override
+    public Handler getMainHandler() {
+        return handler;
+    }
+
+    @Override
     public Object onMessage(String id, Object data) {
         if ("exit".equals(id)) {
-            activity.finish();
+            activity.stopSelf();
         }
         return null;
     }
@@ -231,7 +241,7 @@ public class CordovaInterfaceImpl implements CordovaInterface {
         @SuppressLint("NewApi")
     public void requestPermissions(CordovaPlugin plugin, int requestCode, String [] permissions) {
         int mappedRequestCode = permissionResultCallbacks.registerCallback(plugin, requestCode);
-        getActivity().requestPermissions(permissions, mappedRequestCode);
+        //TODO getService().requestPermissions(permissions, mappedRequestCode);
     }
 
     public boolean hasPermission(String permission)

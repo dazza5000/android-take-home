@@ -18,19 +18,13 @@
 */
 package org.apache.cordova;
 
-import org.apache.cordova.CordovaArgs;
-import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.CordovaInterface;
-import org.apache.cordova.CallbackContext;
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -86,7 +80,7 @@ public class CordovaPlugin {
      *     cordova.getThreadPool().execute(runnable);
      *
      * To run on the UI thread, use:
-     *     cordova.getActivity().runOnUiThread(runnable);
+     *     cordova.getService().runOnUiThread(runnable);
      *
      * @param action          The action to execute.
      * @param rawArgs         The exec() arguments in JSON form.
@@ -105,7 +99,7 @@ public class CordovaPlugin {
      *     cordova.getThreadPool().execute(runnable);
      *
      * To run on the UI thread, use:
-     *     cordova.getActivity().runOnUiThread(runnable);
+     *     cordova.getService().runOnUiThread(runnable);
      *
      * @param action          The action to execute.
      * @param args            The exec() arguments.
@@ -124,7 +118,7 @@ public class CordovaPlugin {
      *     cordova.getThreadPool().execute(runnable);
      *
      * To run on the UI thread, use:
-     *     cordova.getActivity().runOnUiThread(runnable);
+     *     cordova.getService().runOnUiThread(runnable);
      *
      * @param action          The action to execute.
      * @param args            The exec() arguments, wrapped with some Cordova helpers.

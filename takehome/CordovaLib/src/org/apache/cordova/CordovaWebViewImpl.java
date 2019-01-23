@@ -178,13 +178,13 @@ public class CordovaWebViewImpl implements CordovaWebView {
 
                 // If timeout, then stop loading and handle error
                 if (loadUrlTimeout == currentLoadUrlTimeout) {
-                    cordova.getActivity().runOnUiThread(loadError);
+                    cordova.getMainHandler().post(loadError);
                 }
             }
         };
 
         final boolean _recreatePlugins = recreatePlugins;
-        cordova.getActivity().runOnUiThread(new Runnable() {
+        cordova.getMainHandler().post(new Runnable() {
             public void run() {
                 if (loadUrlTimeoutValue > 0) {
                     cordova.getThreadPool().execute(timeoutCheck);
@@ -236,7 +236,7 @@ public class CordovaWebViewImpl implements CordovaWebView {
             } else {
                 intent.setData(uri);
             }
-            cordova.getActivity().startActivity(intent);
+            cordova.getService().startActivity(intent);
         } catch (android.content.ActivityNotFoundException e) {
             LOG.e(TAG, "Error loading url " + url, e);
         }
@@ -533,7 +533,7 @@ public class CordovaWebViewImpl implements CordovaWebView {
                     public void run() {
                         try {
                             Thread.sleep(2000);
-                            cordova.getActivity().runOnUiThread(new Runnable() {
+                            cordova.getMainHandler().post(new Runnable() {
                                 public void run() {
                                     pluginManager.postMessage("spinner", "stop");
                                 }

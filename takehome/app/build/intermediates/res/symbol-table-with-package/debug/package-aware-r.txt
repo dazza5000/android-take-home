@@ -6,10 +6,11 @@ attr civ_circle_background_color
 drawable ic_android_circle
 drawable ic_five_stars
 drawable screen
-id button_five_stars
-id chat_head_root
+id close_btn
+id five_stars_frame_layout
+id move_btn
 layout activity_chat
-layout layout_chat_head
+layout service_five_stars
 mipmap icon
 string activity_name
 string app_name

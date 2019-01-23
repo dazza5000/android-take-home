@@ -19,24 +19,23 @@
 
 package org.apache.cordova;
 
-import java.util.List;
+import android.content.Context;
 
-import android.app.Activity;
+import java.util.List;
 
 @Deprecated // Use Whitelist, CordovaPrefences, etc. directly.
 public class Config {
     private static final String TAG = "Config";
 
-    static ConfigXmlParser parser;
+    public static ConfigXmlParser parser;
 
     private Config() {
     }
 
-    public static void init(Activity action) {
+    public static void init(Context action) {
         parser = new ConfigXmlParser();
         parser.parse(action);
         //TODO: Add feature to bring this back.  Some preferences should be overridden by intents, but not all
-        parser.getPreferences().setPreferencesBundle(action.getIntent().getExtras());
     }
 
     // Intended to be used for testing only; creates an empty configuration.

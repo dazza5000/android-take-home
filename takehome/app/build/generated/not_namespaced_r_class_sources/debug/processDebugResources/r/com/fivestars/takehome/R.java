@@ -41,12 +41,13 @@ public final class R {
     public static final int screen=0x7f020002;
   }
   public static final class id {
-    public static final int button_five_stars=0x7f030000;
-    public static final int chat_head_root=0x7f030001;
+    public static final int close_btn=0x7f030000;
+    public static final int five_stars_frame_layout=0x7f030001;
+    public static final int move_btn=0x7f030002;
   }
   public static final class layout {
     public static final int activity_chat=0x7f040000;
-    public static final int layout_chat_head=0x7f040001;
+    public static final int service_five_stars=0x7f040001;
   }
   public static final class mipmap {
     public static final int icon=0x7f050000;

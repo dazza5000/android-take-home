@@ -291,7 +291,7 @@ public class NativeToJsMessageQueue {
 
         @Override
         public void onNativeToJsMessageAvailable(final NativeToJsMessageQueue queue) {
-            cordova.getActivity().runOnUiThread(new Runnable() {
+            cordova.getMainHandler().post(new Runnable() {
                 public void run() {
                     String js = queue.popAndEncodeAsJs();
                     if (js != null) {
@@ -361,7 +361,7 @@ public class NativeToJsMessageQueue {
 
         @Override
         public void onNativeToJsMessageAvailable(final NativeToJsMessageQueue queue) {
-            cordova.getActivity().runOnUiThread(new Runnable() {
+            cordova.getMainHandler().post(new Runnable() {
                 public void run() {
                     String js = queue.popAndEncodeAsJs();
                     if (js != null) {

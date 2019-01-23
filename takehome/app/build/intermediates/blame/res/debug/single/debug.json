@@ -1,118 +1,118 @@
 [
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-ldpi_icon.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-ldpi/icon.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_five_stars.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_five_stars.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_five_stars.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-mdpi/ic_five_stars.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-xxhdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-xxhdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_five_stars.xml.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_five_stars.xml"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-nodpi_ic_android_circle.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-nodpi/ic_android_circle.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_five_stars.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-hdpi/ic_five_stars.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-xhdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-xhdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-mdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-mdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-xxxhdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-xxxhdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_icon.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-xxxhdpi/icon.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_icon.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-xxhdpi/icon.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-xhdpi_icon.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-xhdpi/icon.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-ldpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-ldpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-xhdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-xhdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-ldpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-xxxhdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-xxxhdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/xml_config.xml.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/xml/config.xml"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/layout_layout_chat_head.xml.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/layout/layout_chat_head.xml"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/layout_activity_chat.xml.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/layout/activity_chat.xml"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_five_stars.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_five_stars.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-mdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-mdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-hdpi_icon.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-hdpi/icon.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-xxhdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-xxhdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-xxhdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-xxhdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/layout_service_five_stars.xml.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/layout/service_five_stars.xml"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-xhdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-xhdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_five_stars.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_five_stars.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-xxxhdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-xxxhdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_five_stars.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_five_stars.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-ldpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-ldpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-mdpi/icon.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-nodpi_ic_android_circle.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-nodpi/ic_android_circle.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-mdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-mdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-ldpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-ldpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_icon.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-xxxhdpi/icon.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/layout_activity_chat.xml.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/layout/activity_chat.xml"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_five_stars.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-ldpi/ic_five_stars.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_five_stars.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_five_stars.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_five_stars.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-hdpi/ic_five_stars.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-xxhdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-xxhdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-hdpi_icon.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-hdpi/icon.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/xml_config.xml.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/xml/config.xml"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-xhdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-xhdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-mdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-mdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-hdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-hdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_five_stars.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_five_stars.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-hdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-hdpi/screen.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_five_stars.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-ldpi/ic_five_stars.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-anydpi-v21_ic_five_stars.xml.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_five_stars.xml"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-hdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-hdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-xhdpi_icon.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-xhdpi/icon.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-land-hdpi_screen.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-land-hdpi/screen.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_five_stars.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/generated/res/pngs/debug/drawable-mdpi/ic_five_stars.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_icon.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-xxhdpi/icon.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-ldpi_icon.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-ldpi/icon.png"
     },
     {
-        "merged": "/source/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/mipmap-mdpi_icon.png.flat",
-        "source": "/source/source/publicRepos/android-take-home/takehome/app/src/main/res/mipmap-mdpi/icon.png"
+        "merged": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/build/intermediates/res/merged/debug/drawable-port-xxxhdpi_screen.png.flat",
+        "source": "/Users/darrankelinske/source/publicRepos/android-take-home/takehome/app/src/main/res/drawable-port-xxxhdpi/screen.png"
     }
 ]
