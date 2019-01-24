@@ -19,6 +19,8 @@
 package org.apache.cordova;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.KeyEvent;
@@ -36,36 +38,19 @@ public class CordovaDialogsHelper {
     }
 
     public void showAlert(String message, final Result result) {
-        AlertDialog.Builder dlg = new AlertDialog.Builder(context);
-        dlg.setMessage(message);
-        dlg.setTitle("Alert");
-        //Don't let alerts break the back button
-        dlg.setCancelable(true);
-        dlg.setPositiveButton(android.R.string.ok,
-                new AlertDialog.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        result.gotResult(true, null);
-                    }
-                });
-        dlg.setOnCancelListener(
-                new DialogInterface.OnCancelListener() {
-                    public void onCancel(DialogInterface dialog) {
-                        result.gotResult(false, null);
-                    }
-                });
-        dlg.setOnKeyListener(new DialogInterface.OnKeyListener() {
-            //DO NOTHING
-            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_BACK)
-                {
-                    result.gotResult(true, null);
-                    return false;
-                }
-                else
-                    return true;
-            }
-        });
-        //TODO: Switch to notification or launch activity to show dialog lastHandledDialog = dlg.show();
+
+        Notification.Builder builder = new Notification.Builder(this.context)
+                .setContentTitle("Alert")
+                .setContentText(message)
+                .setSmallIcon(android.R.drawable.star_on)
+                .setStyle(new Notification.BigTextStyle())
+                .setPriority(Notification.PRIORITY_DEFAULT);
+
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(7, builder.build());
+
+        result.gotResult(true, null);
     }
 
     public void showConfirm(String message, final Result result) {

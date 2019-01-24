@@ -46,7 +46,7 @@ class CommunicationPlugin : CordovaPlugin() {
     }
 
     private fun queryPurchaseCount(callbackContext: CallbackContext) {
-        callbackContext.success(purchaseCount)
+        callbackContext.success(getTransactionResponsePayload(purchaseCount).toString())
     }
 
     private fun makePurchase(callbackContext: CallbackContext) {
@@ -59,6 +59,7 @@ class CommunicationPlugin : CordovaPlugin() {
         purchaseCount = 0
         sharedPreferences?.edit()?.putInt(KEY_PURCHASE_COUNT, purchaseCount)?.apply()
         val jsonObject = getTransactionResponsePayload(purchaseCount)
+        jsonObject.put("rewardRedeemed", true)
         callbackContext.success(jsonObject.toString())
     }
 

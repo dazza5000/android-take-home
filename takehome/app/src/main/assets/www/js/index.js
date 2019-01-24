@@ -41,17 +41,18 @@ var app = {
 
         var plugin = "CommunicationPlugin";
         var transactionCallback = function(string) {
-            console.log(string);
             var purchaseResponse = JSON.parse(string);
 
             purchaseCountText.textContent = purchaseResponse.purchaseCount;
             rewardLevel.textContent = purchaseResponse.rewardLevel;
+
+            if (purchaseResponse.rewardRedeemed) {
+            alert("Congratulations. Here is your reward!");
+            }
         };
 
         // Fire of a query for the current purchase count
-        cordova.exec(function(string) {
-            purchaseCountText.textContent = string;
-        }, function(err) {}, plugin, "queryPurchaseCount", null);
+        cordova.exec(transactionCallback, function(err) {}, plugin, "queryPurchaseCount", null);
 
         function makePurchase() {
             cordova.exec(transactionCallback, function(err) {}, plugin, "makePurchase", null);

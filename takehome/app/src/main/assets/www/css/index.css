@@ -70,13 +70,11 @@ body {
 h1 {
     font-size:24px;
     font-weight:normal;
-    margin:0px;
+    margin-top:10px;
     overflow:visible;
     padding:0px;
     text-align:center;
 }
-
-.event {
     border-radius:4px;
     -webkit-border-radius:4px;
     color:#FFFFFF;

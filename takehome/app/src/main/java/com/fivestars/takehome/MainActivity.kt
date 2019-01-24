@@ -58,9 +58,8 @@ class MainActivity : Activity() {
                 Toast.makeText(this,
                         "Draw over other app permission not available. Closing the application",
                         Toast.LENGTH_SHORT).show()
-
-                finish()
             }
+            finish()
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
