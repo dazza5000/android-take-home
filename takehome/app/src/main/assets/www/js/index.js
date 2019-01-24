@@ -16,55 +16,44 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 var app = {
+    const plugin = "CommunicationPlugin";
+    const purchaseCallback = function(string) {
+    const purchaseResponse = JSON.stringify(string);
+
+    purchaseCountText.textContent = string;
+     }
     // Application Constructor
-    initialize: function () {
+    initialize: function() {
         this.bindEvents();
     },
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function () {
+    bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function () {
+    onDeviceReady: function() {
 
-             function cordovaDevice() {
-                alert("woot");
-             }
+        var purchaseCountText = document.getElementById("purchase-count");
+        var purchaseButton = document.getElementById("make-purchase-button");
 
-           var button = document.getElementById("cordovaDevice");
+        // Fire of a query for the current purchase count
+        cordova.exec(function(string) {
+            purchaseCountText.textContent = string;
+        }, function(err) {}, plugin, "queryPurchaseCount", null);
 
+        function makePurchase() {
+            cordova.exec(purchaseCallback, function(err) {}, plugin, "makePurchase", null);
+        };
 
-         function bridgeIt() {
-             cordova.exec(function(string){
-                              button.name = string;
-                              console.log(string);
-                              button.textContent = string;
-                            }, function(err) {}, "CommunicationPlugin", "coolMethod", ["woot"]);
-         };
-
-
-    document.getElementById("cordovaDevice").addEventListener("click", bridgeIt);
-
+        purchaseButton.addEventListener("click", makePurchase);
     },
-    // Update DOM on a Received Event
-    receivedEvent: function (id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
 };
 
 app.initialize();

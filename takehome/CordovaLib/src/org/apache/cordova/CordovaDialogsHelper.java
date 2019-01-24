@@ -65,7 +65,7 @@ public class CordovaDialogsHelper {
                     return true;
             }
         });
-//        lastHandledDialog = dlg.show();
+        //TODO: Switch to notification or launch activity to show dialog lastHandledDialog = dlg.show();
     }
 
     public void showConfirm(String message, final Result result) {

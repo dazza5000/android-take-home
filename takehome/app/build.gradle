@@ -18,6 +18,8 @@
 */
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 buildscript {
     repositories {
@@ -168,6 +170,7 @@ android {
         }
 
         targetSdkVersion 27
+        minSdkVersion 19
     }
 
     lintOptions {
@@ -264,6 +267,8 @@ dependencies {
     implementation(project(path: ":CordovaLib"))
     // SUB-PROJECT DEPENDENCIES END
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
 
 def promptForReleaseKeyPassword() {
@@ -324,4 +329,7 @@ for (def func : cdvPluginPostBuildExtras) {
 //     ext.postBuildExtras = { ... code here ... }
 if (hasProperty('postBuildExtras')) {
     postBuildExtras()
+}
+repositories {
+    mavenCentral()
 }
