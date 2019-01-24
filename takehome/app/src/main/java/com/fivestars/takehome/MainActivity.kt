@@ -50,7 +50,7 @@ class MainActivity : Activity() {
     }
 
     @SuppressLint("NewApi")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == RC_DRAW_OVERLAY) {
             if (Settings.canDrawOverlays(this)) {
                 startFiveStarsService()
