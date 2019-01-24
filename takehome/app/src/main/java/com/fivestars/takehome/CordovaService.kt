@@ -73,7 +73,7 @@ abstract class CordovaService : Service() {
         if (appView == null) {
             init()
         }
-        appView!!.loadUrlIntoView(url, true)
+        appView?.loadUrlIntoView(url, true)
     }
 
     private fun loadConfig() {
@@ -96,8 +96,6 @@ abstract class CordovaService : Service() {
 
     //Suppressing warnings in AndroidStudio
     private fun createViews() {
-        //Why are we setting a constant as the ID? This should be investigated
-        appView?.view?.id = 100
         appView?.view?.requestFocusFromTouch()
     }
 

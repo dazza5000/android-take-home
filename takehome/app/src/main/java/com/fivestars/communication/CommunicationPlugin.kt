@@ -8,6 +8,7 @@ import org.apache.cordova.CordovaPlugin
 import org.apache.cordova.CordovaWebView
 import org.json.JSONArray
 import org.json.JSONException
+import org.json.JSONObject
 
 
 /**
@@ -27,14 +28,21 @@ class CommunicationPlugin : CordovaPlugin() {
 
     @Throws(JSONException::class)
     override fun execute(action: String, args: JSONArray, callbackContext: CallbackContext): Boolean {
-        if (action == "makePurchase") {
-            this.makePurchase(callbackContext)
-            return true
-        } else if (action == "queryPurchaseCount") {
-            queryPurchaseCount(callbackContext)
-            return true
+        when (action) {
+            "makePurchase" -> {
+                this.makePurchase(callbackContext)
+                return true
+            }
+            "queryPurchaseCount" -> {
+                queryPurchaseCount(callbackContext)
+                return true
+            }
+            "redeemAward" -> {
+                redeemAward(callbackContext)
+                return true
+            }
+            else -> return false
         }
-        return false
     }
 
     private fun queryPurchaseCount(callbackContext: CallbackContext) {
@@ -43,7 +51,36 @@ class CommunicationPlugin : CordovaPlugin() {
 
     private fun makePurchase(callbackContext: CallbackContext) {
         sharedPreferences?.edit()?.putInt(KEY_PURCHASE_COUNT, ++purchaseCount)?.apply()
-        callbackContext.success(purchaseCount)
+        val jsonObject = getTransactionResponsePayload(purchaseCount)
+        callbackContext.success(jsonObject.toString())
+    }
+
+    private fun redeemAward(callbackContext: CallbackContext) {
+        purchaseCount = 0
+        sharedPreferences?.edit()?.putInt(KEY_PURCHASE_COUNT, purchaseCount)?.apply()
+        val jsonObject = getTransactionResponsePayload(purchaseCount)
+        callbackContext.success(jsonObject.toString())
+    }
+
+    private fun getTransactionResponsePayload(purchaseCount: Int): JSONObject {
+        val jsonObject = JSONObject()
+        jsonObject.put("purchaseCount", purchaseCount)
+        jsonObject.put("rewardLevel", getRewardLevel(purchaseCount))
+        return jsonObject
+    }
+
+    private fun getRewardLevel(purchaseCount: Int) : String {
+        var level: Int = purchaseCount / 5
+        return when(level) {
+            0 -> "Never Give Up"
+            1 -> "Bronze"
+            2 -> "Silver"
+            3 -> "Gold"
+            4 -> "Platinum"
+            5 -> "Diamond"
+            6 -> "Double Black Diamond"
+            else -> "Elon Musk"
+        }
     }
 
     companion object {

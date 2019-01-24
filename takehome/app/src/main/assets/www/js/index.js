@@ -17,12 +17,6 @@
  * under the License.
  */
 var app = {
-    const plugin = "CommunicationPlugin";
-    const purchaseCallback = function(string) {
-    const purchaseResponse = JSON.stringify(string);
-
-    purchaseCountText.textContent = string;
-     }
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -42,6 +36,17 @@ var app = {
 
         var purchaseCountText = document.getElementById("purchase-count");
         var purchaseButton = document.getElementById("make-purchase-button");
+        var rewardLevel = document.getElementById("reward-level");
+        var redeemButton = document.getElementById("redeem-award-button");
+
+        var plugin = "CommunicationPlugin";
+        var transactionCallback = function(string) {
+            console.log(string);
+            var purchaseResponse = JSON.parse(string);
+
+            purchaseCountText.textContent = purchaseResponse.purchaseCount;
+            rewardLevel.textContent = purchaseResponse.rewardLevel;
+        };
 
         // Fire of a query for the current purchase count
         cordova.exec(function(string) {
@@ -49,10 +54,15 @@ var app = {
         }, function(err) {}, plugin, "queryPurchaseCount", null);
 
         function makePurchase() {
-            cordova.exec(purchaseCallback, function(err) {}, plugin, "makePurchase", null);
+            cordova.exec(transactionCallback, function(err) {}, plugin, "makePurchase", null);
         };
 
+                function redeemAward() {
+                    cordova.exec(transactionCallback, function(err) {}, plugin, "redeemAward", null);
+                };
+
         purchaseButton.addEventListener("click", makePurchase);
+        redeemButton.addEventListener("click", redeemAward);
     },
 };
 
