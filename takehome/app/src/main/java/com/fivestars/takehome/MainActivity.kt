@@ -33,7 +33,6 @@ class MainActivity : Activity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // enable Cordova apps to be started in the background
         val extras = intent.extras
         if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
             moveTaskToBack(true)

@@ -38,18 +38,6 @@ class FiveStarsService : CordovaService() {
                         return true
                     }
                     MotionEvent.ACTION_UP -> {
-                        //As we implemented on touch listener with ACTION_MOVE,
-                        //we have to check if the previous action was ACTION_DOWN
-                        //to identify if the user clicked the view or not.
-                        //                        if (lastAction == MotionEvent.ACTION_DOWN) {
-                        //                            //Open the chat conversation click.
-                        //                            Intent intent = new Intent(ChatHeadService.this, ChatActivity.class);
-                        //                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        //                            startActivity(intent);
-                        //
-                        //                            //close the service and remove the chat heads
-                        //                            stopSelf();
-                        //                        }
                         lastAction = event.action
                         return true
                     }
