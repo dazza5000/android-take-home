@@ -9,6 +9,9 @@ import org.apache.cordova.CordovaWebView
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import org.apache.cordova.PluginResult
+
+
 
 
 /**
@@ -18,6 +21,7 @@ class CommunicationPlugin : CordovaPlugin() {
 
     private var purchaseCount: Int = 0
     private var sharedPreferences: SharedPreferences? = null
+    public var callbackContext: CallbackContext? = null
 
     override fun initialize(cordova: CordovaInterface?, webView: CordovaWebView?) {
         super.initialize(cordova, webView)
@@ -28,13 +32,19 @@ class CommunicationPlugin : CordovaPlugin() {
 
     @Throws(JSONException::class)
     override fun execute(action: String, args: JSONArray, callbackContext: CallbackContext): Boolean {
+
+
         when (action) {
             "makePurchase" -> {
                 this.makePurchase(callbackContext)
                 return true
             }
             "queryPurchaseCount" -> {
-                queryPurchaseCount(callbackContext)
+                this.callbackContext = callbackContext
+                val result = PluginResult(PluginResult.Status.OK, true)
+                result.keepCallback = true
+                callbackContext.sendPluginResult(result)
+                //queryPurchaseCount(callbackContext)
                 return true
             }
             "redeemAward" -> {
@@ -63,7 +73,7 @@ class CommunicationPlugin : CordovaPlugin() {
         callbackContext.success(jsonObject.toString())
     }
 
-    private fun getTransactionResponsePayload(purchaseCount: Int): JSONObject {
+    fun getTransactionResponsePayload(purchaseCount: Int): JSONObject {
         val jsonObject = JSONObject()
         jsonObject.put("purchaseCount", purchaseCount)
         jsonObject.put("rewardLevel", getRewardLevel(purchaseCount))
