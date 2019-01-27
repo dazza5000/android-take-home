@@ -27,6 +27,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Toast
+import com.fivestars.takehome.fivestars.FiveStarsService
 
 class MainActivity : Activity() {
 

@@ -1,9 +1,11 @@
-package com.fivestars.takehome
+package com.fivestars.takehome.fivestars
 
 import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import com.fivestars.takehome.CordovaService
+import com.fivestars.takehome.R
 
 class FiveStarsService : CordovaService() {
 

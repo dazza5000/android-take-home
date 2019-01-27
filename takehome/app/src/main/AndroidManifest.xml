@@ -14,7 +14,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".FiveStarsService"
+            android:name=".fivestars.FiveStarsService"
             android:enabled="true"
             android:exported="false"/>
     </application>

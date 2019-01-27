@@ -19,7 +19,6 @@ import org.json.JSONException
 import org.json.JSONObject
 
 import java.util.ArrayList
-import kotlin.random.Random
 
 abstract class CordovaService : Service() {
 
@@ -44,7 +43,7 @@ abstract class CordovaService : Service() {
             loadUrl(it)
         }
 
-        //Inflate the chat head layout we created
+        //Inflate the layout to show to the user
         contentView = LayoutInflater.from(this).inflate(layoutToInflate, null)
 
         (contentView?.findViewById<View>(appViewParentLayoutId) as ViewGroup).addView(appView?.view)
@@ -65,7 +64,6 @@ abstract class CordovaService : Service() {
         mWindowManager?.addView(contentView, params)
 
         var communicationPlugin = appView?.pluginManager?.getPlugin("CommunicationPlugin") as CommunicationPlugin
-        Log.e("darran", "the communication plugin is: " +communicationPlugin)
 
         val handler = Handler(Looper.getMainLooper())
 
