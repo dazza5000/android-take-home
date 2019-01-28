@@ -1,71 +1,94 @@
 package com.fivestars.takehome.fivestars
 
+import android.content.Context
 import android.content.SharedPreferences
-import com.fivestars.communication.CommunicationPlugin
-import org.apache.cordova.CallbackContext
-import org.apache.cordova.PluginResult
-import org.json.JSONObject
+import android.os.Handler
+import android.os.Looper
+import com.fivestars.takehome.fivestars.model.AccountDetails
+import com.fivestars.takehome.fivestars.model.Time
+import java.text.SimpleDateFormat
+import java.util.*
 
-class FiveStarsPresenter(communicationPlugin: CommunicationPlugin, context: Context) : FiveStarsContract.Presenter {
+// With more time I would abstract SharedPreferences to get the context out of the presenter and unit test
+// the presenter
+class FiveStarsPresenter(context: Context, val view: FiveStarsContract.View) : FiveStarsContract.Presenter {
+
     private var purchaseCount: Int = 0
     private var sharedPreferences: SharedPreferences? = null
+    private var clockStarted = false
 
     init {
         sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES, 0)
         purchaseCount = sharedPreferences?.getInt(KEY_PURCHASE_COUNT, 0) ?: 0
+
     }
 
-    fun execute(action: String, callbackContext: CallbackContext): Boolean {
-
-        when (action) {
+    override fun onViewEvent(event: String) {
+        when (event) {
             "makePurchase" -> {
-                this.makePurchase(callbackContext)
-                return true
+                this.makePurchase()
             }
             "queryPurchaseCount" -> {
-                this.callbackContext = callbackContext
-                val result = PluginResult(PluginResult.Status.OK, true)
-                result.keepCallback = true
-                callbackContext.sendPluginResult(result)
-                //queryPurchaseCount(callbackContext)
-                return true
+                queryPurchaseCount()
             }
             "redeemAward" -> {
-                redeemAward(callbackContext)
-                return true
+                redeemAward()
             }
-            else -> return false
+            "time" -> {
+                startClock()
+            }
         }
     }
 
-    private fun queryPurchaseCount(callbackContext: CallbackContext) {
-        callbackContext.success(getTransactionResponsePayload(purchaseCount).toString())
+    private fun startClock() {
+
+        if (clockStarted) {
+            return
+        }
+        view.setTimeCallback()
+        clockStarted = true
+
+        val handler = Handler(Looper.getMainLooper())
+
+        val runThis = object : Runnable {
+            override fun run() {
+                view.setTime(getTimeResponsePayload())
+                handler.postDelayed(this as Runnable, 500)
+            }
+        }
+
+        handler.post(runThis)
     }
 
-    private fun makePurchase(callbackContext: CallbackContext) {
+    private fun queryPurchaseCount() {
+        view.setAccountDetailsModel(getTransactionResponsePayload(purchaseCount))
+    }
+
+    private fun makePurchase() {
         sharedPreferences?.edit()?.putInt(KEY_PURCHASE_COUNT, ++purchaseCount)?.apply()
-        val jsonObject = getTransactionResponsePayload(purchaseCount)
-        callbackContext.success(jsonObject.toString())
+        view.setAccountDetailsModel(getTransactionResponsePayload(purchaseCount))
     }
 
-    private fun redeemAward(callbackContext: CallbackContext) {
+    private fun redeemAward() {
         purchaseCount = 0
         sharedPreferences?.edit()?.putInt(KEY_PURCHASE_COUNT, purchaseCount)?.apply()
-        val jsonObject = getTransactionResponsePayload(purchaseCount)
-        jsonObject.put("rewardRedeemed", true)
-        callbackContext.success(jsonObject.toString())
+        val accountDetails = getTransactionResponsePayload(purchaseCount)
+        accountDetails.rewardRedeemed = true
+        view.setAccountDetailsModel(accountDetails)
     }
 
-    fun getTransactionResponsePayload(purchaseCount: Int): JSONObject {
-        val jsonObject = JSONObject()
-        jsonObject.put("purchaseCount", purchaseCount)
-        jsonObject.put("rewardLevel", getRewardLevel(purchaseCount))
-        return jsonObject
+    private fun getTransactionResponsePayload(purchaseCount: Int): AccountDetails {
+        val showRedeemButton = (purchaseCount >= REWARD_INCREMENT)
+        return AccountDetails(purchaseCount, getRewardLevel(purchaseCount), showRedeemButton)
     }
 
-    private fun getRewardLevel(purchaseCount: Int) : String {
-        var level: Int = purchaseCount / 5
-        return when(level) {
+    fun getTimeResponsePayload(): Time {
+        return Time(SimpleDateFormat("HH:mm").format(Date()))
+    }
+
+    private fun getRewardLevel(purchaseCount: Int): String {
+        val level: Int = purchaseCount / REWARD_INCREMENT
+        return when (level) {
             0 -> "Never Give Up"
             1 -> "Bronze"
             2 -> "Silver"
@@ -81,5 +104,6 @@ class FiveStarsPresenter(communicationPlugin: CommunicationPlugin, context: Cont
 
         private const val SHARED_PREFERENCES = "com.fivestars.sharedpreferences"
         private const val KEY_PURCHASE_COUNT = "purchase_count"
+        private const val REWARD_INCREMENT = 5
     }
 }

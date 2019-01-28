@@ -34,6 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
 
+        var clock = document.getElementById("time");
         var purchaseCountText = document.getElementById("purchase-count");
         var purchaseButton = document.getElementById("make-purchase-button");
         var rewardLevel = document.getElementById("reward-level");
@@ -41,15 +42,28 @@ var app = {
 
         var plugin = "CommunicationPlugin";
         var transactionCallback = function(string) {
-            var purchaseResponse = JSON.parse(string);
+            var transactionResponse = JSON.parse(string);
 
-            purchaseCountText.textContent = purchaseResponse.purchaseCount;
-            rewardLevel.textContent = purchaseResponse.rewardLevel;
+            purchaseCountText.textContent = transactionResponse.purchaseCount;
+            rewardLevel.textContent = transactionResponse.rewardLevel;
+            
+            if (transactionResponse.showRedeemButton === true) {
+                redeemButton.style.visibility = "visible";
+            } else {
+                redeemButton.style.visibility = "hidden";
+            }
 
-            if (purchaseResponse.rewardRedeemed) {
-            alert("Congratulations. Here is your reward!");
+            if (transactionResponse.rewardRedeemed) {
+                alert("Congratulations. Here is your reward!");
             }
         };
+
+        var timeCallback = function(string) {
+            var transactionResponse = JSON.parse(string);
+            clock.textContent = transactionResponse.time;
+        }
+
+        cordova.exec(timeCallback, function(err) {}, plugin, "time", null);
 
         // Fire of a query for the current purchase count
         cordova.exec(transactionCallback, function(err) {}, plugin, "queryPurchaseCount", null);
@@ -58,9 +72,9 @@ var app = {
             cordova.exec(transactionCallback, function(err) {}, plugin, "makePurchase", null);
         };
 
-                function redeemAward() {
-                    cordova.exec(transactionCallback, function(err) {}, plugin, "redeemAward", null);
-                };
+        function redeemAward() {
+            cordova.exec(transactionCallback, function(err) {}, plugin, "redeemAward", null);
+         };
 
         purchaseButton.addEventListener("click", makePurchase);
         redeemButton.addEventListener("click", redeemAward);

@@ -1,12 +1,16 @@
 package com.fivestars.takehome.fivestars
 
-import org.apache.cordova.CallbackContext
+import com.fivestars.takehome.fivestars.model.AccountDetails
+import com.fivestars.takehome.fivestars.model.Time
 
 interface FiveStarsContract {
     interface View {
-        fun showTime(time: String)
+        fun setTimeCallback()
+        fun setTime(time: Time)
+        fun setAccountDetailsModel(accountDetails: AccountDetails)
     }
+
     interface Presenter {
-        fun execute(action: String, callbackContext: CallbackContext)
+        fun onViewEvent(event: String)
     }
 }

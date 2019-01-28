@@ -4,20 +4,47 @@ import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
+import com.fivestars.communication.CommunicationPlugin
 import com.fivestars.takehome.CordovaService
 import com.fivestars.takehome.R
+import com.fivestars.takehome.fivestars.model.AccountDetails
+import com.fivestars.takehome.fivestars.model.Time
+import com.google.gson.Gson
+import org.apache.cordova.CallbackContext
+import org.apache.cordova.PluginResult
 
-class FiveStarsService : CordovaService() {
+class FiveStarsService : CordovaService(), FiveStarsContract.View {
+
+    private var communicationPlugin: CommunicationPlugin? = null
+    private var fiveStarsPresenter: FiveStarsPresenter? = null
+    private var timeContext: CallbackContext? = null
+    private var currentCallback: CallbackContext? = null
+    private var gson: Gson = Gson()
+    private var communicationListener: CommunicationPlugin.CommunicationListener? = null
+
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate() {
         super.onCreate()
 
+        (appView?.pluginManager?.getPlugin("CommunicationPlugin") as CommunicationPlugin).let {
+            this.communicationPlugin = it
+            fiveStarsPresenter = FiveStarsPresenter(applicationContext, this as FiveStarsContract.View)
+            communicationListener =
+                    object : CommunicationPlugin.CommunicationListener {
+                        override fun execute(action: String, callbackContext: CallbackContext) {
+                            this@FiveStarsService.currentCallback = callbackContext
+                            fiveStarsPresenter?.onViewEvent(action)
+                        }
+                    }
+            it.setCommunicationListener(communicationListener as CommunicationPlugin.CommunicationListener)
+        }
+
         val closeButton = contentView?.findViewById<View>(R.id.close_btn) as ImageView
         closeButton.setOnClickListener { stopSelf() }
 
-        val chatHeadImage = contentView?.findViewById<View>(R.id.move_btn) as ImageView
-        chatHeadImage.setOnTouchListener(object : View.OnTouchListener {
+        val moveButton = contentView?.findViewById<View>(R.id.move_btn) as ImageView
+        moveButton.setOnTouchListener(object : View.OnTouchListener {
             private var lastAction: Int = 0
             private var initialX: Int = 0
             private var initialY: Int = 0
@@ -64,4 +91,19 @@ class FiveStarsService : CordovaService() {
 
     override val appViewParentLayoutId: Int
         get() = R.id.cordova_container
+
+    override fun setTimeCallback() {
+        timeContext = currentCallback
+    }
+
+    override fun setTime(time: Time) {
+        var result = PluginResult(PluginResult.Status.OK, gson.toJson(time))
+        result.keepCallback = true
+        timeContext?.sendPluginResult(result)
+    }
+
+    override fun setAccountDetailsModel(accountDetails: AccountDetails) {
+        currentCallback?.success(gson.toJson(accountDetails))
+    }
+
 }

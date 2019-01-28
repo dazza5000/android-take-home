@@ -6,25 +6,21 @@ import android.graphics.PixelFormat
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.webkit.WebViewClient
-import com.fivestars.communication.CommunicationPlugin
 import org.apache.cordova.*
-
 import org.json.JSONException
 import org.json.JSONObject
-
-import java.util.ArrayList
+import java.util.*
 
 abstract class CordovaService : Service() {
 
     protected var mWindowManager: WindowManager? = null
     protected var contentView: View? = null
-    private var appView: CordovaWebView? = null
+    protected var appView: CordovaWebView? = null
     private var preferences: CordovaPreferences? = null
     private var cordovaInterface: CordovaInterfaceImpl? = null
     private var launchUrl: String? = null
@@ -39,7 +35,7 @@ abstract class CordovaService : Service() {
         super.onCreate()
         cordovaInterface = makeCordovaInterface()
         loadConfig()
-        launchUrl?.let{
+        launchUrl?.let {
             loadUrl(it)
         }
 
@@ -63,26 +59,6 @@ abstract class CordovaService : Service() {
         mWindowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         mWindowManager?.addView(contentView, params)
 
-        var communicationPlugin = appView?.pluginManager?.getPlugin("CommunicationPlugin") as CommunicationPlugin
-
-        val handler = Handler(Looper.getMainLooper())
-
-        var count = 777
-
-        var runThis = object : Runnable {
-            override fun run() {
-                communicationPlugin.callbackContext?.let{
-                    Log.e("darran", "we have a callback context")
-                    var result =  PluginResult(PluginResult.Status.OK, communicationPlugin.getTransactionResponsePayload(count).toString())
-                    result.keepCallback = true
-                    it.sendPluginResult(result)
-                    count += 777
-                }
-                handler.postDelayed(this as Runnable, 1000)
-            }
-        }
-
-        handler.post(runThis)
     }
 
     private fun loadUrl(url: String) {
